@@ -2,28 +2,28 @@ import React, { useRef } from 'react';
 import svgPaths from "../imports/데스크탑/svg-dlgm8392jn";
 
 // ── Product hero images ───────────────────────────────────────────────────────
-import imgWufJacket from "figma:asset/c740818e3568b5247543b981a672c51330f162dc.png";
-import imgWufNeo    from "figma:asset/92ab08bd442385965b70bafdc339b132b3c61fcf.png";
-import imgWufAir    from "figma:asset/e26cafcb03b5f20e0f9311dc8b585b46576b4954.png";
+import imgWufJacket from "../assets/c740818e3568b5247543b981a672c51330f162dc.png";
+import imgWufNeo    from "../assets/92ab08bd442385965b70bafdc339b132b3c61fcf.png";
+import imgWufAir    from "../assets/e26cafcb03b5f20e0f9311dc8b585b46576b4954.png";
 
 // ── Section images ────────────────────────────────────────────────────────────
-import imgTailoring  from "figma:asset/a8fe3c881ab0de65b79bd8ac6f4e50ef4d99f094.png";
-import imgPawFest26  from "figma:asset/7152cdadb9b836bdfb9c02f759cd0c28c41ac886.png";
-import imgWufPro     from "figma:asset/289ba6a038159805c60f2b904b0c116ff7dee033.png";
-import imgWufCollar2 from "figma:asset/a3f37d73447d05455693367e96c01e709d746a0f.png";
-import imgWufTracker from "figma:asset/5e40c6260480379b4b5c45f1e183f38b605f7b88.png";
-import imgWufTradeIn from "figma:asset/76a2d456e26214e169897896985003448d527708.png";
+import imgTailoring  from "../assets/a8fe3c881ab0de65b79bd8ac6f4e50ef4d99f094.png";
+import imgPawFest26  from "../assets/7152cdadb9b836bdfb9c02f759cd0c28c41ac886.png";
+import imgWufPro     from "../assets/289ba6a038159805c60f2b904b0c116ff7dee033.png";
+import imgWufCollar2 from "../assets/a3f37d73447d05455693367e96c01e709d746a0f.png";
+import imgWufTracker from "../assets/5e40c6260480379b4b5c45f1e183f38b605f7b88.png";
+import imgWufTradeIn from "../assets/76a2d456e26214e169897896985003448d527708.png";    
 
 // ── Carousel images ───────────────────────────────────────────────────────────
-import carousel1 from "figma:asset/58980e18fb14122001a379f704eb330dba2f819b.png";
-import carousel2 from "figma:asset/fbad52f5ecbd1850562fd49e558b7af5a7ccf5a3.png";
-import carousel3 from "figma:asset/5e3fd6d4eebd3e7f5a9fc0762ef4c0806b5b4660.png";
-import carousel4 from "figma:asset/3c0cb9ffa7addab1149e542ba302ee33b8e97c0f.png";
-import carousel5 from "figma:asset/42f28502d1e1d771f1bdaaa0c68b622fb9ea5ff3.png";
-import carousel6 from "figma:asset/2b1fc9cb386f63f8620456ba86e3a844936c2a18.png";
-import carousel7 from "figma:asset/c30a9702e57ad8bce9312562dfc918ae3e48bb71.png";
-import carousel8 from "figma:asset/f00c7020fdd080605ce0160c082a8c9c7e62a395.png";
-import carousel9 from "figma:asset/2bfad16724c9f05b444862f7f165a7a4cdac5997.png";
+import carousel1 from "../assets/58980e18fb14122001a379f704eb330dba2f819b.png";
+import carousel2 from "../assets/fbad52f5ecbd1850562fd49e558b7af5a7ccf5a3.png";
+import carousel3 from "../assets/5e3fd6d4eebd3e7f5a9fc0762ef4c0806b5b4660.png";
+import carousel4 from "../assets/3c0cb9ffa7addab1149e542ba302ee33b8e97c0f.png";
+import carousel5 from "../assets/42f28502d1e1d771f1bdaaa0c68b622fb9ea5ff3.png";
+import carousel6 from "../assets/2b1fc9cb386f63f8620456ba86e3a844936c2a18.png";
+import carousel7 from "../assets/c30a9702e57ad8bce9312562dfc918ae3e48bb71.png";
+import carousel8 from "../assets/f00c7020fdd080605ce0160c082a8c9c7e62a395.png";
+import carousel9 from "../assets/2bfad16724c9f05b444862f7f165a7a4cdac5997.png";
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // Header
