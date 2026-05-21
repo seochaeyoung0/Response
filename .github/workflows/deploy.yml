@@ -1,25 +1,17 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,16 +22,11 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          # ⭐ 문제 1 해결: package-lock.json 파일이 librarySite_github 폴더 안에 있으므로 경로를 지정해 줍니다.
-          cache-dependency-path: 'librarySite_github/package-lock.json'
 
       - name: Install dependencies
-        # ⭐ 문제 2 해결: 실제 리액트 프로젝트 폴더 안에서 npm install과 build가 실행되도록 두 곳 모두 지정합니다.
-        working-directory: ./librarySite_github
         run: npm ci
 
       - name: Build
-        working-directory: ./librarySite_github
         run: npm run build
 
       - name: Setup Pages
@@ -48,8 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # ⭐ 중요: Vite가 빌드를 완료하면 librarySite_github/dist 폴더가 생기므로 이 경로를 올려야 합니다.
-          path: './librarySite_github/dist'
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
