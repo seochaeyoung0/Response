@@ -1,50 +1,56 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "master"]
+    branches:
+      - main
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying; no build step needed if we upload built files, 
-  # but here we build from source for better practice.
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+          # ⭐ 문제 1 해결: package-lock.json 파일이 librarySite_github 폴더 안에 있으므로 경로를 지정해 줍니다.
+          cache-dependency-path: 'librarySite_github/package-lock.json'
+
       - name: Install dependencies
-        run: npm install
+        # ⭐ 문제 2 해결: 실제 리액트 프로젝트 폴더 안에서 npm install과 build가 실행되도록 두 곳 모두 지정합니다.
+        working-directory: ./librarySite_github
+        run: npm ci
+
       - name: Build
+        working-directory: ./librarySite_github
         run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './dist'
+          # ⭐ 중요: Vite가 빌드를 완료하면 librarySite_github/dist 폴더가 생기므로 이 경로를 올려야 합니다.
+          path: './librarySite_github/dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
